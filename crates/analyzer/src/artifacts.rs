@@ -269,6 +269,15 @@ impl AnalysisArtifacts {
         }
     }
 
+    pub(crate) fn record_loop_possibly_undefined_read(&mut self, variable: Word) {
+        let mut loop_scope = self.loop_scope.as_mut();
+        while let Some(scope) = loop_scope {
+            scope.possibly_undefined_reads.insert(variable);
+
+            loop_scope = scope.parent_loop.as_deref_mut();
+        }
+    }
+
     /// Set the type of expression `expression` to `t`.
     #[inline]
     pub fn set_expression_type<T>(&mut self, expression: &T, t: TUnion)

@@ -161,6 +161,10 @@ where
     let variable_name = BytesDisplay(variable_name_bytes);
     block_context.add_conditionally_referenced_variable_atom(variable_name_bytes, variable_atom);
 
+    if block_context.locals.get(&variable_atom).is_none_or(|variable_type| variable_type.possibly_undefined()) {
+        artifacts.record_loop_possibly_undefined_read(variable_atom);
+    }
+
     let mut variable_type = match block_context.locals.get(&variable_atom) {
         Some(variable_type) => Rc::clone(variable_type),
         None => {

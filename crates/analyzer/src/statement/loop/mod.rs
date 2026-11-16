@@ -861,6 +861,7 @@ where
                 let is_plain_variable = !variable_id.as_bytes().iter().any(|byte| matches!(byte, b'[' | b'-' | b':'));
                 if is_plain_variable
                     && !condition_variables.contains(&variable_id)
+                    && loop_scope.possibly_undefined_reads.contains(&variable_id)
                     && !continue_context.references_in_scope.contains_key(&variable_id)
                 {
                     let end_type = continue_context.locals.get(&variable_id).cloned();
@@ -875,7 +876,9 @@ where
 
                     if let Some(mut seeded_type) = seeded_type {
                         seeded_type.set_possibly_undefined(true, None);
-                        continue_context.locals.insert(variable_id, Rc::new(seeded_type));
+                        let seeded_type = Rc::new(seeded_type);
+                        loop_scope.seeded_loop_variables.insert(variable_id, Rc::clone(&seeded_type));
+                        continue_context.locals.insert(variable_id, seeded_type);
                         continue_context.possibly_undefined_variable_ids.insert(variable_id);
                         continue_context.variables_possibly_in_scope.insert(variable_id);
 
@@ -1071,6 +1074,8 @@ where
             artifacts.finish_expression_type_checkpoint(CheckpointAction::Keep);
         }
         tracing::trace!(file = %String::from_utf8_lossy(context.source_file.name.as_ref()), offset = loop_scope.span.start.offset, converged_passes, "Loop convergence skips");
+        #[cfg(test)]
+        convergence::record_loop_analysis();
 
         for issue in first_iteration_issues {
             if !is_iteration_dependent_truthiness_issue(issue.code.as_deref())

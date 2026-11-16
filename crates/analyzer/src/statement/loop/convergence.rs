@@ -28,11 +28,17 @@ use crate::context::scope::loop_scope::LoopScope;
 #[cfg(test)]
 thread_local! {
     static SKIPPED_PASSES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static LOOP_ANALYSES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
 pub(super) fn record_skipped_passes(count: usize) {
     SKIPPED_PASSES.with(|skipped| skipped.set(skipped.get() + count));
+}
+
+#[cfg(test)]
+pub(super) fn record_loop_analysis() {
+    LOOP_ANALYSES.with(|analyses| analyses.set(analyses.get() + 1));
 }
 
 pub(super) fn supports_context<'ctx, A>(
@@ -515,6 +521,7 @@ mod tests {
         assert!(original.detach_expression_type_checkpoints().is_none());
         let mut optimized_result = AnalysisResult::new(references);
         SKIPPED_PASSES.with(|skipped| skipped.set(0));
+        LOOP_ANALYSES.with(|analyses| analyses.set(0));
         let mut optimized = Analyzer::new(&arena, &file, &names, &codebase, &optimized_registry, settings)
             .analyze_with_artifacts(program, &mut optimized_result)
             .unwrap_or_else(|error| panic!("{error}"));
@@ -572,6 +579,32 @@ mod tests {
             3,
         );
         assert!(skipped > 0, "the fixture must exercise the fixed-point path");
+    }
+
+    #[test]
+    fn body_only_variables_keep_nested_loops_converging() {
+        assert_analysis_parity(
+            "<?php
+            function nested(array $rows): void {
+                foreach ($rows as $outer) {
+                    $a = $outer['k'] ?? null;
+                    if ($a === null) { $out = []; }
+                    if ($a === 'v0') { $out[] = $outer; $first = count($out); continue; }
+                    elseif ($a === 'v1') { $out[] = $outer; $second = count($out); }
+                    foreach ($rows as $inner) {
+                        $b = $inner['k'] ?? null;
+                        if ($b === null) { $in = []; }
+                        if ($b === 'v0') { $in[] = $inner; $third = count($in); continue; }
+                        elseif ($b === 'v1') { $in[] = $inner; $fourth = count($in); }
+                        echo $in ? 'y' : 'n';
+                    }
+                    echo $out ? 'y' : 'n';
+                }
+            }
+        ",
+            3,
+        );
+        assert_eq!(LOOP_ANALYSES.with(std::cell::Cell::get), 3);
     }
 
     #[test]
