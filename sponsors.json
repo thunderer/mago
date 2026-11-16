@@ -1,0 +1,154 @@
+{
+    "tiers": [
+        {
+            "id": "large",
+            "size": 128,
+            "sponsors": [
+                {
+                    "name": "monbillet.ch",
+                    "url": "https://monbillet.ch/",
+                    "avatar": "https://carthage.software/media/01a1dcca-6b65-941f-d4f1-ca4aa685f023"
+                },
+                {
+                    "name": "CHECK24",
+                    "url": "https://opensource.check24.de/project/mago/",
+                    "avatar": "https://carthage.software/media/01a01a1f-9b15-5cd1-1205-96a7452e17cb"
+                }
+            ]
+        },
+        {
+            "id": "medium",
+            "size": 80,
+            "sponsors": [
+                {
+                    "name": "Jason R. McNeil",
+                    "url": "https://github.com/jasonrm",
+                    "avatar": "https://avatars.githubusercontent.com/u/39949?u=69c0e4fb08c439250978d41dbc3371d2f0609b98&v=4"
+                },
+                {
+                    "name": "Vincent Berset",
+                    "url": "https://ofcompute.rs/",
+                    "avatar": "https://avatars.githubusercontent.com/u/5173120?u=95efc76cd8fc804536dc6dd25781a95b650bf902&v=4"
+                }
+            ]
+        },
+        {
+            "id": "small",
+            "size": 64,
+            "sponsors": [
+                {
+                    "name": "Let's Book",
+                    "url": "https://lets-book.com/",
+                    "avatar": "https://avatars.githubusercontent.com/u/60887869?v=4"
+                },
+                {
+                    "name": "HeySora",
+                    "url": "https://heysora.net/",
+                    "avatar": "https://avatars.githubusercontent.com/u/17962248?u=f648cc7bd2aca843662fc8166e206e0b047f075a&v=4"
+                },
+                {
+                    "name": "Bohuslav \u0160imek",
+                    "url": "https://github.com/kambo-1st",
+                    "avatar": "https://avatars.githubusercontent.com/u/6493048?u=5eddf1eb923810745d8bdd62496d245238833d07&v=4"
+                },
+                {
+                    "name": "TicketSwap",
+                    "url": "https://www.ticketswap.com",
+                    "avatar": "https://avatars.githubusercontent.com/u/5766233?v=4"
+                }
+            ]
+        },
+        {
+            "id": "supporter",
+            "size": 48,
+            "dense": true,
+            "sponsors": [
+                {
+                    "name": "Julian Schramm",
+                    "url": "http://julian.center",
+                    "avatar": "https://avatars.githubusercontent.com/u/79840527?u=072e6949e7600af33f97c8c3dd6d823d62668d32&v=4"
+                },
+                {
+                    "name": "ddanielou",
+                    "url": "https://github.com/ddanielou",
+                    "avatar": "https://avatars.githubusercontent.com/u/1174337?v=4"
+                },
+                {
+                    "name": "epic-64",
+                    "url": "https://github.com/epic-64",
+                    "avatar": "https://avatars.githubusercontent.com/u/105014007?v=4"
+                },
+                {
+                    "name": "Zuruh",
+                    "url": "https://github.com/Zuruuh",
+                    "avatar": "https://avatars.githubusercontent.com/u/77583853?u=568441a6191e891cf4c9f52c9c230c45930bed86&v=4"
+                },
+                {
+                    "name": "Rasmus Bertell",
+                    "url": "https://bertell.fi",
+                    "avatar": "https://avatars.githubusercontent.com/u/57398362?u=f9bb382310c9552de2a7a82193c86fb94750e971&v=4"
+                },
+                {
+                    "name": "Timoth\u00e9e Sterle",
+                    "url": "https://github.com/nanotee",
+                    "avatar": "https://avatars.githubusercontent.com/u/56110730?u=d27787e0853d748cb07355e7daedc267be38b0d4&v=4"
+                },
+                {
+                    "name": "Giorgio Pogliani",
+                    "url": "https://performingdigital.com",
+                    "avatar": "https://avatars.githubusercontent.com/u/28866565?v=4"
+                },
+                {
+                    "name": "Uwe Ohse",
+                    "url": "https://www.ohse.de/uwe/",
+                    "avatar": "https://avatars.githubusercontent.com/u/18497839?u=16f2321844720dd97a3031b5034be318078efba7&v=4"
+                },
+                {
+                    "name": "Sebastian Drewer-Gutland",
+                    "url": "https://github.com/sdrewergutland",
+                    "avatar": "https://avatars.githubusercontent.com/u/16477894?u=fd958b1c5c1ddc9259a5dd7dfa6dadc9ace88a11&v=4"
+                },
+                {
+                    "name": "Enzo Innocenzi",
+                    "url": "https://innocenzi.dev",
+                    "avatar": "https://avatars.githubusercontent.com/u/16060559?u=4c0ac72d014627d9dce1fa42e530b9491dc9cfae&v=4"
+                },
+                {
+                    "name": "Adriaan",
+                    "url": "https://adriaan.dev",
+                    "avatar": "https://avatars.githubusercontent.com/u/4326420?v=4"
+                },
+                {
+                    "name": "Daniel Weaver",
+                    "url": "https://danielweaver.dev",
+                    "avatar": "https://avatars.githubusercontent.com/u/3847288?u=717dd9991e86a001567e197fe3ba5d618a300118&v=4"
+                },
+                {
+                    "name": "Alejandro Celaya",
+                    "url": "https://alejandrocelaya.blog",
+                    "avatar": "https://avatars.githubusercontent.com/u/2719332?u=9b1f8330a14ebd061e2015ba3c1874f90bb713d8&v=4"
+                },
+                {
+                    "name": "Pablo Largo Mohedano",
+                    "url": "https://devnix.dev/",
+                    "avatar": "https://avatars.githubusercontent.com/u/1777519?v=4"
+                },
+                {
+                    "name": "Matheus Martins",
+                    "url": "https://github.com/math3usmartins",
+                    "avatar": "https://avatars.githubusercontent.com/u/585688?u=5af32a41b0781fade43c4a45ac4fe74c5bee4b97&v=4"
+                },
+                {
+                    "name": "Alexandru P\u0103tr\u0103nescu",
+                    "url": "http://alexandru.patranescu.ro",
+                    "avatar": "https://avatars.githubusercontent.com/u/209984?v=4"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "url": "https://www.shadowhand.com/",
+                    "avatar": "https://avatars.githubusercontent.com/u/38203?u=2e3f25fc95a44429c23a3450e515b2191073fd00&v=4"
+                }
+            ]
+        }
+    ]
+}
